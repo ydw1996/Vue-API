@@ -51,7 +51,7 @@ export default {
     const search = ref("ocean");
     const SearchImages = () => {
       fetch(
-        `https://api.unsplash.com/search/photos?query=${search.value}&client_id=jGbDbr4a56tzr3H7rOKt8zDwnzQ6Dv8eID5gzzL8t0s&per_page=30`
+        `https://api.unsplash.com/search/photos?query=${search.value}&client_id=jGbDbr4a56tzr3H7rOKt8zDwnzQ6Dv8eID5gzzL8t0s&per_page=29`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -77,51 +77,25 @@ export default {
 }
 .image__list ul {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-
-  li {
-    flex: 1 1 20%;
-    margin: 1%;
-    overflow: hidden;
-    border-radius: 0.4em;
-
-    span {
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      color: #fff;
-      color: var(--white);
-      display: -webkit-box;
-      font-family: SCoreDream;
-      font-family: var(--subKor_font);
-      overflow: hidden;
-      padding-top: 10px;
-      text-overflow: ellipsis;
-    }
-  }
+  columns: 4;
+  column-gap: 20px;
 }
-
 .image__list ul img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f9f9f9;
   transition: all 0.1s;
-}
-
-.image__list li img {
-  transition: all 0.5s;
-}
-.image__list li:hover img {
-  transform: scale(1.05);
 }
 
 .image__search {
   background: var(--black);
-
   .container {
     position: relative;
   }
-
   h2 {
     color: var(--white);
     font-size: 40px;
@@ -129,23 +103,22 @@ export default {
     text-indent: -9999px;
     width: 0;
   }
-
   input {
     background: var(--black);
     border: 2px solid var(--light_border);
     border-radius: 50px;
     color: #f0eeeb;
-    color: var(--white);
+    color: var(--light_bg);
     margin: 0 1% 5%;
     padding: 1rem 3rem 1rem 2rem;
     width: 98%;
   }
   button {
-    background: #fff;
+    background: var(--white);
     border: 0;
     border-radius: 50%;
-    color: var(—black);
-    font-family: var(—subKor_font);
+    color: var(--black);
+    font-family: var(--subKor_font);
     font-size: 12px;
     height: 40px;
     position: absolute;
